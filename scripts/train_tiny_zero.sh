@@ -59,11 +59,11 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.n=5 \
     actor_rollout_ref.ref.log_prob_micro_batch_size=16 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
-    actor_rollout_ref.critic.model.enable_gradient_checkpointing=True \
-    actor_rollout_ref.critic.model.fsdp_config.param_offload=True \
-    actor_rollout_ref.critic.model.fsdp_config.grad_offload=True \
-    actor_rollout_ref.critic.model.fsdp_config.optimizer_offload=True \
-    actor_rollout_ref.critic.ppo_micro_batch_size=16 \
+    critic.model.enable_gradient_checkpointing=True \
+    critic.model.fsdp_config.param_offload=True \
+    critic.model.fsdp_config.grad_offload=True \
+    critic.model.fsdp_config.optimizer_offload=True \
+    critic.ppo_micro_batch_size=16 \
     trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
     trainer.project_name='vTinyZero' \
