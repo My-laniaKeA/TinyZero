@@ -51,7 +51,7 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.actor.kl_loss_type=low_var_kl \
     actor_rollout_ref.actor.fsdp_config.param_offload=True \
     actor_rollout_ref.actor.fsdp_config.grad_offload=True \
-    actor_rollout_ref.actor.fsdp_config.optimizer_offload=True \
+    actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
     actor_rollout_ref.rollout.log_prob_micro_batch_size=16 \
     actor_rollout_ref.rollout.tensor_model_parallel_size=$ROLLOUT_TP_SIZE \
     actor_rollout_ref.rollout.name=vllm \
@@ -62,7 +62,7 @@ python3 -m verl.trainer.main_ppo \
     critic.model.enable_gradient_checkpointing=True \
     critic.model.fsdp_config.param_offload=True \
     critic.model.fsdp_config.grad_offload=True \
-    critic.model.fsdp_config.optimizer_offload=True \
+    critic.model.fsdp_config.optimizer_offload=False \
     critic.ppo_micro_batch_size=16 \
     trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
